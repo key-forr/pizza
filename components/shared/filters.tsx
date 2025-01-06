@@ -42,7 +42,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
         limit={6}
         defaultItems={[
           {
-            text: "Сырный соус",
+            text: "Сирний соус",
             value: "1",
           },
           {
@@ -50,25 +50,25 @@ export const Filters: React.FC<Props> = ({ className }) => {
             value: "2",
           },
           {
-            text: "Чеснок",
+            text: "Часник",
             value: "3",
           },
           {
-            text: "Солённые огурчики",
+            text: "Квашені огурчики",
             value: "4",
           },
           {
-            text: "Красный лук",
+            text: "Червона цибуля",
             value: "5",
           },
           {
-            text: "Томаты",
+            text: "Помідори",
             value: "6",
           },
         ]}
         items={[
           {
-            text: "Сырный соус",
+            text: "Сирний соус",
             value: "1",
           },
           {
@@ -76,19 +76,67 @@ export const Filters: React.FC<Props> = ({ className }) => {
             value: "2",
           },
           {
-            text: "Чеснок",
+            text: "Часник",
             value: "3",
           },
           {
-            text: "Солённые огурчики",
+            text: "Квашені огурчики",
             value: "4",
           },
           {
-            text: "Красный лук",
+            text: "Червона цибуля",
             value: "5",
           },
           {
-            text: "Томаты",
+            text: "Помідори",
+            value: "6",
+          },
+          {
+            text: "Сирний соус",
+            value: "1",
+          },
+          {
+            text: "Моццарелла",
+            value: "2",
+          },
+          {
+            text: "Часник",
+            value: "3",
+          },
+          {
+            text: "Квашені огурчики",
+            value: "4",
+          },
+          {
+            text: "Червона цибуля",
+            value: "5",
+          },
+          {
+            text: "Помідори",
+            value: "6",
+          },
+          {
+            text: "Сирний соус",
+            value: "1",
+          },
+          {
+            text: "Моццарелла",
+            value: "2",
+          },
+          {
+            text: "Часник",
+            value: "3",
+          },
+          {
+            text: "Квашені огурчики",
+            value: "4",
+          },
+          {
+            text: "Червона цибуля",
+            value: "5",
+          },
+          {
+            text: "Помідори",
             value: "6",
           },
         ]}
