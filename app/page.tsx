@@ -25,7 +25,7 @@ export default function Home() {
           <div className="flex-1">
             <div className="flex flex-col gap-16">
               <ProductsGroupList
-                title="Комбо"
+                title="Піцци"
                 items={[
                   {
                     id: 1,
@@ -77,6 +77,60 @@ export default function Home() {
                   },
                 ]}
                 categoryId={1}
+              />
+              <ProductsGroupList
+                title="Комбо"
+                items={[
+                  {
+                    id: 1,
+                    name: "Рікка",
+                    imageUrl:
+                      "https://img.freepik.com/premium-photo/isolated-pepperoni-pizza-with-salami_219193-8089.jpg?semt=ais_hybrid",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 2,
+                    name: "Рікка",
+                    imageUrl:
+                      "https://img.freepik.com/premium-photo/isolated-pepperoni-pizza-with-salami_219193-8089.jpg?semt=ais_hybrid",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 3,
+                    name: "Рікка",
+                    imageUrl:
+                      "https://img.freepik.com/premium-photo/isolated-pepperoni-pizza-with-salami_219193-8089.jpg?semt=ais_hybrid",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 4,
+                    name: "Рікка",
+                    imageUrl:
+                      "https://img.freepik.com/premium-photo/isolated-pepperoni-pizza-with-salami_219193-8089.jpg?semt=ais_hybrid",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 5,
+                    name: "Рікка",
+                    imageUrl:
+                      "https://img.freepik.com/premium-photo/isolated-pepperoni-pizza-with-salami_219193-8089.jpg?semt=ais_hybrid",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                  {
+                    id: 6,
+                    name: "Рікка",
+                    imageUrl:
+                      "https://img.freepik.com/premium-photo/isolated-pepperoni-pizza-with-salami_219193-8089.jpg?semt=ais_hybrid",
+                    price: 550,
+                    items: [{ price: 550 }],
+                  },
+                ]}
+                categoryId={2}
               />
             </div>
           </div>
