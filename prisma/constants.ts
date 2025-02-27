@@ -21,109 +21,109 @@ export const ingredients = [
     name: "Сирний бортик",
     price: 179,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/99f5cb91225b4875bd06a26d2e842106.png",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650204/Сирний_бортик_aov1uo.png",
   },
   {
     name: "Сливочна моцарелла",
     price: 79,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/cdea869ef287426386ed634e6099a5ba.png",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650205/Сливочна_моцарелла_kxc6ed.png",
   },
   {
     name: "Сири чеддер і пармезан",
     price: 79,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/000D3A22FA54A81411E9AFA69C1FE796",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650204/Сири_чеддер_і_пармезан_lwalzp.png",
   },
   {
     name: "Гострий перець халапеньо",
     price: 59,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/11ee95b6bfdf98fb88a113db92d7b3df.png",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650198/Гострий_перець_халапеньо_axuwe5.png",
   },
   {
     name: "Ніжне курча",
     price: 79,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/000D3A39D824A82E11E9AFA5B328D35A",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650203/Ніжне_курча_qxeoxd.png",
   },
   {
     name: "Шампіньйони",
     price: 59,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/000D3A22FA54A81411E9AFA67259A324",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650206/Шампіньйони_oajmvd.png",
   },
   {
     name: "Бекон",
     price: 79,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/000D3A39D824A82E11E9AFA637AAB68F",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650198/Бекон_dq2few.png",
   },
   {
     name: "Шинка",
     price: 79,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/000D3A39D824A82E11E9AFA61B9A8D61",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650206/Шинка_lzvwnl.png",
   },
   {
     name: "Пікатна пепероні",
     price: 79,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/000D3A22FA54A81411E9AFA6258199C3",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650203/Пікатна_пепероні_xkj8gr.png",
   },
   {
     name: "Гостра чорізо",
     price: 79,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/000D3A22FA54A81411E9AFA62D5D6027",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650198/Гостра_чорізо_plml7x.png",
   },
   {
     name: "Мариновані огірки",
     price: 59,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/000D3A21DA51A81211E9EA89958D782B",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650199/Мариновані_огірки_q2fcq9.png",
   },
   {
     name: "Свіжі помідори",
     price: 59,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/000D3A39D824A82E11E9AFA7AC1A1D67",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650203/Свіжі_помідори_s9plmm.png",
   },
   {
     name: "Червона цибуля",
     price: 59,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/000D3A22FA54A81411E9AFA60AE6464C",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650205/Червона_цибуля_tnprob.png",
   },
   {
     name: "Сочні ананаси",
     price: 59,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/000D3A21DA51A81211E9AFA6795BA2A0",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650205/Сочні_ананаси_varecl.png",
   },
   {
     name: "Італьянські трави",
     price: 39,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/370dac9ed21e4bffaf9bc2618d258734.png",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650198/Італьянські_трави_xaje9r.png",
   },
   {
     name: "Солодкий перець",
     price: 59,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/000D3A22FA54A81411E9AFA63F774C1B",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650204/Солодкий_перець_nrjkvb.png",
   },
   {
     name: "Кубіки бринзи",
     price: 79,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/000D3A39D824A82E11E9AFA6B0FFC349",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650199/Кубіки_бринзи_t3h1nl.png",
   },
   {
     name: "Мітболи",
     price: 79,
     imageUrl:
-      "https://cdn.dodostatic.net/static/Img/Ingredients/b2f3a5d5afe44516a93cfc0d2ee60088.png",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650202/Мітболи_nyxksw.png",
   },
 ].map((obj, index) => ({ id: index + 1, ...obj }));
 
@@ -131,103 +131,97 @@ export const products = [
   {
     name: "Омлет с шинкою і грибами",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/11EE7970321044479C1D1085457A36EB.webp",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740662321/Омлет_с_шинкою_і_грибами_lrvmdl.png",
     categoryId: 2,
   },
   {
     name: "Омлет с пепероні",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/11EE94ECF33B0C46BA410DEC1B1DD6F8.webp",
-    categoryId: 2,
-  },
-  {
-    name: "Кава Латте",
-    imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/11EE7D61B0C26A3F85D97A78FEEE00AD.webp",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740662611/Омлет_с_пепероні_nk79zb.png",
     categoryId: 2,
   },
   {
     name: "Сендвіч з шинкою і сиром",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/11EE796FF0059B799A17F57A9E64C725.webp",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740663166/Сендвіч_з_шинкою_і_сиром_mhlcwx.png",
     categoryId: 3,
   },
   {
     name: "Курячі нагетси",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/11EE7D618B5C7EC29350069AE9532C6E.webp",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650199/Курячі_нагетси_bbdw23.webp",
     categoryId: 3,
   },
   {
     name: "Картопля з печі з соусом",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/11EED646A9CD324C962C6BEA78124F19.webp",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650199/Картопля_з_печі_з_соусом_e6b7p1.webp",
     categoryId: 3,
   },
   {
-    name: "Додстер",
+    name: "Класичний хот дог",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/11EE796F96D11392A2F6DD73599921B9.webp",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740663624/Класичний_хот_дог_i2qtvm.png",
     categoryId: 3,
   },
   {
-    name: "Гострий Додстер 🌶️🌶️",
+    name: "Гострий хот дог",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/11EE796FD3B594068F7A752DF8161D04.webp",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740663896/Гострий_хот_дог_u02nxp.png",
     categoryId: 3,
   },
   {
     name: "Банановий молочний коктейль",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/11EEE20B8772A72A9B60CFB20012C185.webp",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740661917/Банановий_молочний_коктейль_cy7shz.png",
     categoryId: 4,
   },
   {
     name: "Карамельно яблоко молочний коктейль",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/11EE79702E2A22E693D96133906FB1B8.webp",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740661793/Карамельно_яблоко_молочний_коктейль_gqnz1j.png",
     categoryId: 4,
   },
   {
     name: "Молочний коктейль з печеням Орео",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/11EE796FA1F50F8F8111A399E4C1A1E3.webp",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740661674/Молочний_коктейль_з_печеням_Орео_d9wojs.png",
     categoryId: 4,
   },
   {
     name: "Класичний молочний коктейль",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/11EE796F93FB126693F96CB1D3E403FB.webp",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740660898/Класичний_молочний_коктейль_ovnanu.png",
     categoryId: 4,
   },
   {
-    name: "Ірландський Капучино",
+    name: "Ірландське капучино",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/11EE7D61999EBDA59C10E216430A6093.webp",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650198/Ірландський_Капучино_m95sh7.webp",
     categoryId: 5,
   },
   {
-    name: "Кава Карамельний капучино",
+    name: "Карамельне капучіно",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/11EE7D61AED6B6D4BFDAD4E58D76CF56.webp",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650198/Кава_Карамельний_капучино_dz1akd.webp",
     categoryId: 5,
   },
   {
-    name: "Кава Кокосовий латте",
+    name: "Кокосове латте",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/11EE7D61B19FA07090EE88B0ED347F42.webp",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650198/Кава_Кокосовий_латте_zmajw9.webp",
     categoryId: 5,
   },
   {
-    name: "Кава Американо",
+    name: "Американо",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/11EE7D61B044583596548A59078BBD33.webp",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650197/Кава_Американо_zprfs0.webp",
     categoryId: 5,
   },
   {
-    name: "Кава Латте",
+    name: "Латте",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/11EE7D61B0C26A3F85D97A78FEEE00AD.webp",
+      "https://res.cloudinary.com/dilgog6bf/image/upload/v1740650198/Кава_Латте_m89ukp.webp",
     categoryId: 5,
   },
 ];

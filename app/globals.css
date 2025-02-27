@@ -14,32 +14,26 @@ html {
 
 @layer base {
   :root {
-    --foreground: 20 14.3% 4.1%;
+    --foreground: 220 20% 10%; /* Темний колір тексту */
+    --card: 0 0% 98%; /* Дуже світло-сірий фон для карток */
+    --card-foreground: 220 10% 20%; /* Темно-сірий текст на картках */
 
-    --card: 0 0% 100%;
-    --card-foreground: 20 14.3% 4.1%;
-
+    /* Інші змінні залишаються без змін */
     --popover: 0 0% 100%;
-    --popover-foreground: 20 14.3% 4.1%;
-
-    --primary: 22 100% 50%;
-    --primary-foreground: 60 9.1% 97.8%;
-
-    --secondary: 32 100% 98%;
-    --secondary-foreground: 24 9.8% 10%;
-
-    --muted: 60 4.8% 95.9%;
-    --muted-foreground: 25 5.3% 44.7%;
-
-    --accent: 60 4.8% 95.9%;
-    --accent-foreground: 24 9.8% 10%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 60 9.1% 97.8%;
-
-    --border: 20 5.9% 90%;
-    --input: 0 0% 90%;
-    --ring: 24.6 95% 53.1%;
+    --popover-foreground: 200 20% 20%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 92%; /* Світло-сірий для акцентів */
+    --secondary-foreground: 0 0% 20%; /* Темно-сірий текст для акцентів */
+    --muted: 180 10% 95%;
+    --muted-foreground: 180 5% 30%;
+    --accent: 0 0% 90%; /* Акцентний сірий */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%; /* Світло-сірий для рамок */
+    --input: 0 0% 98%; /* Дуже світло-сірий фон для введення */
+    --ring: 0 0% 80%; /* Сірий для виділення */
     --radius: 1rem;
   }
 }
@@ -49,21 +43,21 @@ html {
 }
 
 .scrollbar::-webkit-scrollbar {
-  width: 4px;
+  width: 6px; /* Ширший скролбар */
 }
 
 .scrollbar::-webkit-scrollbar-track {
   border-radius: 6px;
-  background: #fff;
+  background: #f4f4f4; /* Світлий фон для треку скролбару */
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-  background: #dbdadd;
+  background: #c7c7c7; /* Світло-сірий скролбар */
   border-radius: 6px;
 }
 
 .scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #dbdadd;
+  background: #a1a1a1; /* Темніший при наведенні */
 }
 
 @layer utilities {
@@ -77,6 +71,6 @@ html {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white text-foreground; /* Білий фон для сторінки */
   }
 }
