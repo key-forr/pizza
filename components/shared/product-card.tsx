@@ -28,8 +28,8 @@ export const ProductCard: React.FC<Props> = ({
 
         <Title text={name} size="sm" className="mb-1 mt-3 font-bold" />
         <p className="text-sm text-grau-400">
-          Цыпленок, моцарелла, сыры чеддер и пармезан, сырный соус, томаты, соус
-          альфредо, чеснок
+          Курча, моцарелла, сири чеддер та пармезан, сирний соус, томати, соус
+          Альфредо, часник
         </p>
 
         <div className="flex justify-between items-center mt-4">
