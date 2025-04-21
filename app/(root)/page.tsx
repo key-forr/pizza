@@ -32,6 +32,13 @@ export default async function Home() {
       />
       <Container className="mt-10 pb-14">
         <div className="flex gap-[80px]">
+          {" "}
+          {/* {Фільтрація} */}
+          <div className="w-[250px]">
+            <Suspense>
+              <Filters />
+            </Suspense>
+          </div>
           {/* {Список товарів} */}
           <div className="flex-1">
             <div className="flex flex-col gap-16">
@@ -47,13 +54,6 @@ export default async function Home() {
                   )
               )}
             </div>
-          </div>
-
-          {/* {Фільтрація} */}
-          <div className="w-[250px]">
-            <Suspense>
-              <Filters />
-            </Suspense>
           </div>
         </div>
       </Container>
