@@ -37,6 +37,16 @@ export const findPizzas = async (params: GetSearchParams) => {
                 },
               }
             : undefined,
+          items: {
+            some: {
+              size: {
+                in: sizes,
+              },
+              pizzaType: {
+                in: pizzaTypes,
+              },
+            },
+          },
         },
         include: {
           ingredients: true,
