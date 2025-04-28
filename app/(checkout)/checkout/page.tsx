@@ -1,4 +1,5 @@
 import {
+  CheckoutItem,
   CheckoutItemDetails,
   Container,
   Title,
@@ -18,7 +19,35 @@ export default function CheckoutPage() {
       <div className="flex gap-10">
         {/*Ліва частина*/}
         <div className="flex flex-col gap-10 flex-1 mb-20">
-          <WhiteBlock title="1. Корзина">12424</WhiteBlock>
+          <WhiteBlock title="1. Корзина">
+            <div className="flex flex-col gap-5">
+              <CheckoutItem
+                id={1}
+                imageUrl="https://res.cloudinary.com/dilgog6bf/image/upload/v1740659171/Пепперони_фреш_xvj9il.png"
+                details="Велика пепероні фреш з найсмачнішими ананасами та молочним кокосом з Африки"
+                name="пепероні фреш"
+                price={500}
+                quantity={2}
+              />
+              <CheckoutItem
+                id={1}
+                imageUrl="https://res.cloudinary.com/dilgog6bf/image/upload/v1740659171/Пепперони_фреш_xvj9il.png"
+                details="Велика пепероні фреш з найсмачнішими ананасами та молочним кокосом з Африки"
+                name="пепероні фреш"
+                price={500}
+                quantity={2}
+              />
+
+              <CheckoutItem
+                id={1}
+                imageUrl="https://res.cloudinary.com/dilgog6bf/image/upload/v1740659171/Пепперони_фреш_xvj9il.png"
+                details="Велика пепероні фреш з найсмачнішими ананасами та молочним кокосом з Африки"
+                name="пепероні фреш"
+                price={500}
+                quantity={2}
+              />
+            </div>
+          </WhiteBlock>
 
           <WhiteBlock title="2. Персональні дані">
             <div className="grid grid-cols-2 gap-5">
