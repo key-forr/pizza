@@ -1,5 +1,10 @@
-import { Container, Title, WhiteBlock } from "@/components/shared";
-import { Input } from "@/components/ui";
+import {
+  CheckoutItemDetails,
+  Container,
+  Title,
+  WhiteBlock,
+} from "@/components/shared";
+import { Input, Textarea } from "@/components/ui";
 
 export default function CheckoutPage() {
   return (
@@ -32,13 +37,31 @@ export default function CheckoutPage() {
           </WhiteBlock>
           <WhiteBlock title="3. Адреса доставки">
             <div className="flex flex-col gap-5">
-              <Input name="email" className="text-base" placeholder="E-Mail" />
+              <Input
+                name="address"
+                className="text-base"
+                placeholder="Введіть адрес доставки"
+              />
+              <Textarea
+                className="text-base"
+                placeholder="Коментар до замовлення"
+                rows={5}
+              />
             </div>
           </WhiteBlock>
         </div>
 
         {/*Права частина*/}
-        <div className="w-[450px]">123123</div>
+        <div className="w-[450px]">
+          <WhiteBlock className="p-6 sticky top-4">
+            <div className="flex flex-col gap-1">
+              <span className="text-xl">Разом:</span>
+              <span className="text-[34px] font-extrabold">3506 грн</span>
+            </div>
+
+            <CheckoutItemDetails title="Вартість товарів:" value="3000 грн" />
+          </WhiteBlock>
+        </div>
       </div>
     </Container>
   );
