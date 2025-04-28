@@ -22,14 +22,7 @@ import { Title } from "./title";
 import { cn } from "@/lib/utils";
 import { useCart } from "@/hooks";
 
-interface Props {
-  className?: string;
-}
-
-export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
-  children,
-  className,
-}) => {
+export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { updateItemQuantity, totalAmount, items, removeCartItem } = useCart();
 
   const onClickCountButton = (
@@ -95,15 +88,11 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
                     <CartDrawerItem
                       id={item.id}
                       imageUrl={item.imageUrl}
-                      details={
-                        item.pizzaSize && item.pizzaType
-                          ? getCartItemDetails(
-                              item.ingredients,
-                              item.pizzaType as PizzaType,
-                              item.pizzaSize as PizzaSize
-                            )
-                          : ""
-                      }
+                      details={getCartItemDetails(
+                        item.ingredients,
+                        item.pizzaType as PizzaType,
+                        item.pizzaSize as PizzaSize
+                      )}
                       disabled={item.disabled}
                       name={item.name}
                       price={item.price}
