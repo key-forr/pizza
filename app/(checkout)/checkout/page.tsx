@@ -5,6 +5,7 @@ import {
   WhiteBlock,
 } from "@/components/shared";
 import { Input, Textarea } from "@/components/ui";
+import { Package, Percent, Truck } from "lucide-react";
 
 export default function CheckoutPage() {
   return (
@@ -59,7 +60,33 @@ export default function CheckoutPage() {
               <span className="text-[34px] font-extrabold">3506 грн</span>
             </div>
 
-            <CheckoutItemDetails title="Вартість товарів:" value="3000 грн" />
+            <CheckoutItemDetails
+              title={
+                <div className="flex items-center">
+                  <Package size={18} className="mr-2 text-gray-400" />
+                  Вартість товарів:
+                </div>
+              }
+              value="3000 грн"
+            />
+            <CheckoutItemDetails
+              title={
+                <div className="flex items-center">
+                  <Percent size={18} className="mr-2 text-gray-400" />
+                  Комісія:
+                </div>
+              }
+              value="200 грн"
+            />
+            <CheckoutItemDetails
+              title={
+                <div className="flex items-center">
+                  <Truck size={18} className="mr-2 text-gray-400" />
+                  Доставка:
+                </div>
+              }
+              value="306 грн"
+            />
           </WhiteBlock>
         </div>
       </div>
