@@ -13,6 +13,9 @@ import { useCart } from "@/hooks";
 import { getCartItemDetails } from "@/lib";
 import { ArrowRight, Package, Percent, Truck } from "lucide-react";
 
+const VAT = 3;
+const DELIVERY_PRICE = 100;
+
 export default function CheckoutPage() {
   const { updateItemQuantity, totalAmount, items, removeCartItem } = useCart();
 
@@ -24,6 +27,9 @@ export default function CheckoutPage() {
     const newQuantity = type === "plus" ? quantity + 1 : quantity - 1;
     updateItemQuantity(id, newQuantity);
   };
+
+  const vatPrice = (totalAmount * VAT) / 100;
+  const totalPrice = totalAmount + vatPrice + DELIVERY_PRICE;
 
   return (
     <Container className="mt-10">
@@ -98,7 +104,7 @@ export default function CheckoutPage() {
             <div className="flex flex-col gap-1">
               <span className="text-xl">Разом:</span>
               <span className="text-[34px] font-extrabold">
-                {totalAmount} грн
+                {totalPrice} грн
               </span>
             </div>
 
@@ -109,7 +115,7 @@ export default function CheckoutPage() {
                   Вартість товарів:
                 </div>
               }
-              value="3000 грн"
+              value={`${totalAmount} грн`}
             />
             <CheckoutItemDetails
               title={
@@ -118,7 +124,7 @@ export default function CheckoutPage() {
                   Комісія:
                 </div>
               }
-              value="200 грн"
+              value={`${vatPrice} грн`}
             />
             <CheckoutItemDetails
               title={
@@ -127,7 +133,7 @@ export default function CheckoutPage() {
                   Доставка:
                 </div>
               }
-              value="306 грн"
+              value={`${DELIVERY_PRICE} грн`}
             />
 
             <Button
