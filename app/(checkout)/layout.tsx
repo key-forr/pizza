@@ -1,3 +1,4 @@
+import { Container, Header } from "@/components/shared";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,5 +11,16 @@ export default function CheckoutLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <main className="min-h-screen bg-[#FAF1EE]">{children}</main>;
+  return (
+    <main className="min-h-screen bg-[#FAF1EE]">
+      <Container>
+        <Header
+          hasCart={false}
+          hasSearch={false}
+          className="border-b-gray-200"
+        />
+        {children}
+      </Container>
+    </main>
+  );
 }
