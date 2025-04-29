@@ -28,7 +28,7 @@ export const FormInput: React.FC<Props> = ({
       <div className="relative">
         <Input className="h-12 text-md" {...props} />
 
-        <ClearButton onClick={onClickClear} />
+        <ClearButton />
       </div>
 
       <ErrorText text="Поле обов'язкове для вводу" className="mt-2" />

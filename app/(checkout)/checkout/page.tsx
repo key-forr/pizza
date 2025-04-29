@@ -6,8 +6,8 @@ import {
   Container,
   Title,
   WhiteBlock,
+  FormInput,
 } from "@/components/shared";
-import { FormInput } from "@/components/shared/form-components";
 import { Input, Textarea } from "@/components/ui";
 import { PizzaSize, PizzaType } from "@/constants/pizza";
 import { useCart } from "@/hooks";
