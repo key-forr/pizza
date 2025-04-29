@@ -1,5 +1,6 @@
 import { Input } from "@/components/ui";
 import { RequiredSymbol } from "../required-symbol";
+import { ErrorText } from "../error-text";
 
 interface Props {
   name: string;
@@ -8,7 +9,7 @@ interface Props {
   className?: string;
 }
 
-export const FromInput: React.FC<Props> = ({
+export const FormInput: React.FC<Props> = ({
   className,
   name,
   label,
@@ -26,6 +27,8 @@ export const FromInput: React.FC<Props> = ({
       <div className="relative">
         <Input className="h-12 text-md" {...props} />
       </div>
+
+      <ErrorText text="Поле обов'язкове для вводу" className="mt-2" />
     </div>
   );
 };
