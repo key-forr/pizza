@@ -1,3 +1,4 @@
+import { Input } from "@/components/ui";
 import { RequiredSymbol } from "../required-symbol";
 
 interface Props {
@@ -21,6 +22,10 @@ export const FromInput: React.FC<Props> = ({
           {label} {required && <RequiredSymbol />}
         </p>
       )}
+
+      <div className="relative">
+        <Input className="h-12 text-md" {...props} />
+      </div>
     </div>
   );
 };
