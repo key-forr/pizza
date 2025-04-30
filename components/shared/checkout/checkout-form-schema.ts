@@ -12,3 +12,5 @@ export const checkoutFormSchema = z.object({
   address: z.string().min(5, { message: "Введіть коректний адрес" }),
   comment: z.string().optional(),
 });
+
+export type CheckoutFormValues = z.infer<typeof checkoutFormSchema>;

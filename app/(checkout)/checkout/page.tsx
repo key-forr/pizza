@@ -12,12 +12,15 @@ import {
   CheckoutAddressForm,
 } from "@/components/shared";
 import { useCart } from "@/hooks";
-import { checkoutFormSchema } from "@/components/shared/checkout/checkout-form-schema";
+import {
+  checkoutFormSchema,
+  CheckoutFormValues,
+} from "@/components/shared/checkout/checkout-form-schema";
 
 export default function CheckoutPage() {
   const { updateItemQuantity, totalAmount, items, removeCartItem } = useCart();
 
-  const form = useForm({
+  const form = useForm<CheckoutFormValues>({
     resolver: zodResolver(checkoutFormSchema),
     defaultValues: {
       email: "",
