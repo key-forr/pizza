@@ -10,6 +10,8 @@ import {
   Title,
   WhiteBlock,
   FormInput,
+  CheckoutCart,
+  CheckoutPersonalForm,
 } from "@/components/shared";
 import { Input, Textarea } from "@/components/ui";
 import { PizzaSize, PizzaType } from "@/constants/pizza";
@@ -50,26 +52,14 @@ export default function CheckoutPage() {
       <div className="flex gap-10">
         {/*Ліва частина*/}
         <div className="flex flex-col gap-10 flex-1 mb-20">
-          <WhiteBlock title="2. Персональні дані">
-            <div className="grid grid-cols-2 gap-5">
-              <Input
-                name="firstName"
-                className="text-base"
-                placeholder="Ім'я"
-              />
-              <Input
-                name="lastName"
-                className="text-base"
-                placeholder="Прізвище"
-              />
-              <Input name="email" className="text-base" placeholder="E-Mail" />
-              <FormInput
-                name="phone"
-                className="text-base"
-                placeholder="Телефон"
-              />
-            </div>
-          </WhiteBlock>
+          <CheckoutCart
+            onClickCountButton={onClickCountButton}
+            removeCartItem={removeCartItem}
+            items={items}
+          />
+
+          <CheckoutPersonalForm />
+
           <WhiteBlock title="3. Адреса доставки">
             <div className="flex flex-col gap-5">
               <Input
