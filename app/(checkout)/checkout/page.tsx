@@ -12,6 +12,7 @@ import {
   FormInput,
   CheckoutCart,
   CheckoutPersonalForm,
+  CheckoutAddressForm,
 } from "@/components/shared";
 import { Input, Textarea } from "@/components/ui";
 import { PizzaSize, PizzaType } from "@/constants/pizza";
@@ -60,20 +61,7 @@ export default function CheckoutPage() {
 
           <CheckoutPersonalForm />
 
-          <WhiteBlock title="3. Адреса доставки">
-            <div className="flex flex-col gap-5">
-              <Input
-                name="address"
-                className="text-base"
-                placeholder="Введіть адрес доставки"
-              />
-              <Textarea
-                className="text-base"
-                placeholder="Коментар до замовлення"
-                rows={5}
-              />
-            </div>
-          </WhiteBlock>
+          <CheckoutAddressForm />
         </div>
 
         {/*Права частина*/}
