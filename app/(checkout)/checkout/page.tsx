@@ -13,9 +13,9 @@ import {
 } from "@/components/shared";
 import { useCart } from "@/hooks";
 import {
-  checkoutFormSchema,
   CheckoutFormValues,
-} from "@/components/shared/checkout/checkout-form-schema";
+  checkoutFormSchema,
+} from "@/constants/checkout-form-schema";
 
 export default function CheckoutPage() {
   const { updateItemQuantity, totalAmount, items, removeCartItem } = useCart();
