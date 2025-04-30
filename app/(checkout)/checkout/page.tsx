@@ -1,29 +1,24 @@
 "use client";
 
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
-  CheckoutItem,
   CheckoutSidebar,
   Container,
   Title,
-  WhiteBlock,
-  FormInput,
   CheckoutCart,
   CheckoutPersonalForm,
   CheckoutAddressForm,
 } from "@/components/shared";
-import { Input, Textarea } from "@/components/ui";
-import { PizzaSize, PizzaType } from "@/constants/pizza";
 import { useCart } from "@/hooks";
-import { getCartItemDetails } from "@/lib";
+import { checkoutFormSchema } from "@/components/shared/checkout/checkout-form-schema";
 
 export default function CheckoutPage() {
   const { updateItemQuantity, totalAmount, items, removeCartItem } = useCart();
 
   const form = useForm({
-    resolver: zodResolver(),
+    resolver: zodResolver(checkoutFormSchema),
     defaultValues: {
       email: "",
       firstName: "",
