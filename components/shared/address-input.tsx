@@ -70,16 +70,6 @@ export const AddressInput: React.FC<Props> = ({
       }
     } catch (error) {
       console.error("Помилка при отриманні адресних підказок:", error);
-
-      const fallbackSuggestions = [
-        { id: "1", value: `${query}, м. Київ, Київська обл.` },
-        { id: "2", value: `${query}, м. Львів, Львівська обл.` },
-        { id: "3", value: `${query}, м. Одеса, Одеська обл.` },
-        { id: "4", value: `${query}, м. Харків, Харківська обл.` },
-        { id: "5", value: `${query}, м. Дніпро, Дніпропетровська обл.` },
-      ].filter((s) => s.value.toLowerCase().includes(query.toLowerCase()));
-
-      setSuggestions(fallbackSuggestions);
     } finally {
       setLoading(false);
     }
