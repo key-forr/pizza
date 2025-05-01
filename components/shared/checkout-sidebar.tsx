@@ -29,7 +29,9 @@ export const CheckoutSidebar: React.FC<Props> = ({
         {loading ? (
           <Skeleton className="w-48 h-11" />
         ) : (
-          <span className="text-[34px] font-extrabold">{totalPrice} грн</span>
+          <span className="h-11 text-[34px] font-extrabold">
+            {totalPrice} грн
+          </span>
         )}
       </div>
 

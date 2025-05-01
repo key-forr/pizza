@@ -16,6 +16,7 @@ import {
   CheckoutFormValues,
   checkoutFormSchema,
 } from "@/constants/checkout-form-schema";
+import { cn } from "@/lib/utils";
 
 export default function CheckoutPage() {
   const { updateItemQuantity, totalAmount, items, removeCartItem, loading } =
@@ -64,9 +65,13 @@ export default function CheckoutPage() {
                 items={items}
               />
 
-              <CheckoutPersonalForm />
+              <CheckoutPersonalForm
+                className={cn({ "opacity-40 pointer-events-none": loading })}
+              />
 
-              <CheckoutAddressForm />
+              <CheckoutAddressForm
+                className={cn({ "opacity-40 pointer-events-none": loading })}
+              />
             </div>
 
             {/*Права частина*/}
