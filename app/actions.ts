@@ -69,5 +69,7 @@ export async function createOrder(data: CheckoutFormValues) {
         cartId: userCart.id,
       },
     });
+
+    // TODO: оплата
   } catch (err) {}
 }
