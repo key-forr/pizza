@@ -1,6 +1,8 @@
 "use server";
 
+import { PayOrderTemplate } from "@/components/shared";
 import { CheckoutFormValues } from "@/constants/checkout-form-schema";
+import { sendEmail } from "@/lib";
 import { prisma } from "@/prisma/prisma-client";
 import { OrderStatus } from "@prisma/client";
 import { cookies } from "next/headers";
@@ -71,5 +73,17 @@ export async function createOrder(data: CheckoutFormValues) {
     });
 
     // TODO: оплата
-  } catch (err) {}
+
+    await sendEmail(
+      data.email,
+      "DEPIZZA | Оплатіть замовлення",
+      PayOrderTemplate({
+        orderId: order.id,
+        totalAmount: order.totalAmount,
+        paymentUrl: "https://dou.ua/lenta/columns/about-dynamic-programming/",
+      })
+    );
+  } catch (err) {
+    console.log("[CreateOrder] Server error", err);
+  }
 }

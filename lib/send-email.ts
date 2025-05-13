@@ -1,4 +1,3 @@
-import { PayOrderTemplate } from "@/components/shared/email-templates/pay-order";
 import { Resend } from "resend";
 
 export const sendEmail = async (
@@ -12,6 +11,7 @@ export const sendEmail = async (
     from: "onboarding@resend.dev",
     to,
     subject,
+    text: "",
     react: template,
   });
 
