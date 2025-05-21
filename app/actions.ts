@@ -3,6 +3,7 @@
 import { PayOrderTemplate } from "@/components/shared";
 import { CheckoutFormValues } from "@/constants/checkout-form-schema";
 import { sendEmail } from "@/lib";
+import { createStripePayment } from "@/lib/create-payment";
 import { prisma } from "@/prisma/prisma-client";
 import { OrderStatus } from "@prisma/client";
 import { cookies } from "next/headers";
@@ -39,14 +40,14 @@ export async function createOrder(data: CheckoutFormValues) {
       throw new Error("Cart not found");
     }
 
-    if (userCart?.totalAmount == 0) {
+    if (userCart?.totalAmount === 0) {
       throw new Error("Cart is empty");
     }
 
     const order = await prisma.order.create({
       data: {
         token: cartToken,
-        fullName: data.firstName + " " + data.lastName,
+        fullName: `${data.firstName} ${data.lastName}`,
         email: data.email,
         phone: data.phone,
         address: data.address,
@@ -58,21 +59,20 @@ export async function createOrder(data: CheckoutFormValues) {
     });
 
     await prisma.cart.update({
-      where: {
-        id: userCart.id,
-      },
-      data: {
-        totalAmount: 0,
-      },
+      where: { id: userCart.id },
+      data: { totalAmount: 0 },
     });
 
     await prisma.cartItem.deleteMany({
-      where: {
-        cartId: userCart.id,
-      },
+      where: { cartId: userCart.id },
     });
 
-    // TODO: оплата
+    const paymentIntent = await createStripePayment(
+      order.id,
+      order.totalAmount
+    );
+    const clientSecret = paymentIntent.client_secret;
+    const paymentUrl = `http://localhost:3000/pay?client_secret=${clientSecret}&amount=${order.totalAmount}&email=${encodeURIComponent(order.email)}`;
 
     await sendEmail(
       data.email,
@@ -80,9 +80,11 @@ export async function createOrder(data: CheckoutFormValues) {
       PayOrderTemplate({
         orderId: order.id,
         totalAmount: order.totalAmount,
-        paymentUrl: "https://dou.ua/lenta/columns/about-dynamic-programming/",
+        paymentUrl,
       })
     );
+
+    return paymentUrl;
   } catch (err) {
     console.log("[CreateOrder] Server error", err);
   }
