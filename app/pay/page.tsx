@@ -118,8 +118,8 @@ function CheckoutForm() {
           await stripe.retrievePaymentIntent(clientSecret);
 
         if (paymentIntent && paymentIntent.status === "succeeded") {
-          clearInterval(pollInterval);
-          window.location.href = `http://localhost:3000/payment-success?amount=${amount}&email=${email}&payment_intent=${paymentIntentId}`;
+          window.location.href = `http://localhost:3000/payment-success?amount=${amount}&email=${email}&payment_intent=${paymentIntent.id}`;
+          return;
         } else if (
           paymentIntent &&
           (paymentIntent.status === "canceled" ||

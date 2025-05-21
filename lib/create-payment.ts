@@ -1,24 +1,28 @@
-import axios from "axios";
+// lib/create-payment.ts
+import Stripe from "stripe";
 
-export async function createStripePayment(orderId: number, amount: number) {
-  const STRIPE_SECRET = process.env.STRIPE_SECRET_KEY;
+export async function createStripePayment(
+  orderId: number,
+  amount: number,
+  email: string
+) {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+    apiVersion: "2025-04-30.basil",
+  });
 
-  const response = await axios.post(
-    "https://api.stripe.com/v1/payment_intents",
-    new URLSearchParams({
-      amount: String(amount * 100), // копійки
-      currency: "uah",
-      description: `Оплата замовлення №${orderId}`,
-      "metadata[order_id]": String(orderId),
-      "payment_method_types[]": "card",
-    }),
-    {
-      headers: {
-        Authorization: `Bearer ${STRIPE_SECRET}`,
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    }
-  );
+  // Створення платіжного наміру
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: Math.round(amount * 100), // конвертація в копійки
+    currency: "uah",
+    description: `Оплата замовлення №${orderId}`,
+    metadata: {
+      order_id: String(orderId),
+      email: email,
+    },
+    automatic_payment_methods: {
+      enabled: true,
+    },
+  });
 
-  return response.data;
+  return paymentIntent;
 }
