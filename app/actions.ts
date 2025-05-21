@@ -74,6 +74,11 @@ export async function createOrder(data: CheckoutFormValues) {
     const clientSecret = paymentIntent.client_secret;
     const paymentUrl = `http://localhost:3000/pay?client_secret=${clientSecret}&amount=${order.totalAmount}&email=${encodeURIComponent(order.email)}`;
 
+    await prisma.order.update({
+      where: { id: order.id },
+      data: { paymentId: paymentIntent.id },
+    });
+
     await sendEmail(
       data.email,
       "DEPIZZA | Оплатіть замовлення",

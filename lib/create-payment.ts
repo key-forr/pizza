@@ -1,5 +1,3 @@
-// lib/stripe.ts
-
 import axios from "axios";
 
 export async function createStripePayment(orderId: number, amount: number) {
@@ -9,7 +7,7 @@ export async function createStripePayment(orderId: number, amount: number) {
     "https://api.stripe.com/v1/payment_intents",
     new URLSearchParams({
       amount: String(amount * 100), // копійки
-      currency: "usd",
+      currency: "uah",
       description: `Оплата замовлення №${orderId}`,
       "metadata[order_id]": String(orderId),
       "payment_method_types[]": "card",
@@ -22,5 +20,5 @@ export async function createStripePayment(orderId: number, amount: number) {
     }
   );
 
-  return response.data; // повертає client_secret і т.д.
+  return response.data;
 }

@@ -21,7 +21,7 @@ export const CheckoutSidebar: React.FC<Props> = ({
   className,
 }) => {
   const vatPrice = (totalAmount * VAT) / 100;
-  const totalPrice = totalAmount + vatPrice + DELIVERY_PRICE;
+  const totalPrice = Math.round(totalAmount + vatPrice + DELIVERY_PRICE);
 
   return (
     <WhiteBlock className={cn("p-6 sticky top-4", className)}>

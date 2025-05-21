@@ -109,7 +109,6 @@ function CheckoutForm() {
     setIsLoading(false);
   };
 
-  // Функція для періодичної перевірки статусу платежу
   const startPollingPaymentStatus = (paymentIntentId: string) => {
     const pollInterval = setInterval(async () => {
       if (!stripe) return;
