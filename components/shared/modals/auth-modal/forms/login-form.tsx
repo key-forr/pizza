@@ -11,7 +11,7 @@ interface Props {
   onClose?: VoidFunction;
 }
 
-export const LoginFrom: React.FC<Props> = ({ onClose }) => {
+export const LoginForm: React.FC<Props> = ({ onClose }) => {
   const form = useForm<TFormLoginValues>({
     resolver: zodResolver(formLoginSchema),
     defaultValues: {

@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const passwordSchema = z
   .string()
-  .min(6, { message: "Введіть коректний пароль" });
+  .min(4, { message: "Введіть коректний пароль" });
 
 export const formLoginSchema = z.object({
   email: z.string().email({ message: "Введіть коректну пошту" }),
