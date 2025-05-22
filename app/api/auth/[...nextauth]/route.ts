@@ -1,11 +1,11 @@
-import NextAuth from "next-auth";
+import NextAuth, { AuthOptions } from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { prisma } from "@/prisma/prisma-client";
 import { compare, hashSync } from "bcrypt";
 import { UserRole } from "@prisma/client";
 
-export const authOptions = {
+export const authOptions: AuthOptions = {
   providers: [
     GitHubProvider({
       clientId: process.env.GITHUB_ID || "",
@@ -57,7 +57,7 @@ export const authOptions = {
         }
 
         return {
-          id: String(findUser.id),
+          id: findUser.id,
           email: findUser.email,
           name: findUser.fullName,
           role: findUser.role,
@@ -74,6 +74,10 @@ export const authOptions = {
       try {
         if (account?.provider == "credentials") {
           return true;
+        }
+
+        if (!user.email) {
+          return false;
         }
 
         const findUser = await prisma.user.findFirst({
@@ -122,6 +126,10 @@ export const authOptions = {
       }
     },
     async jwt({ token }) {
+      if (!token.email) {
+        return token;
+      }
+
       const findUser = await prisma.user.findFirst({
         where: {
           email: token.email,
