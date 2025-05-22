@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { prisma } from "@/prisma/prisma-client";
-import { compare } from "bcrypt";
+import { compare, hashSync } from "bcrypt";
 import { UserRole } from "@prisma/client";
 
 export const authOptions = {
@@ -70,6 +70,57 @@ export const authOptions = {
     strategy: "jwt",
   },
   callbacks: {
+    async signIn({ user, account }) {
+      try {
+        if (account?.provider == "credentials") {
+          return true;
+        }
+
+        const findUser = await prisma.user.findFirst({
+          where: {
+            OR: [
+              {
+                provider: account?.provider,
+                providerId: account?.providerAccountId,
+              },
+              {
+                email: user.email,
+              },
+            ],
+          },
+        });
+
+        if (findUser) {
+          await prisma.user.update({
+            where: {
+              id: findUser.id,
+            },
+            data: {
+              provider: account?.provider,
+              providerId: account?.providerAccountId,
+            },
+          });
+
+          return true;
+        }
+
+        await prisma.user.create({
+          data: {
+            email: user.email,
+            fullName: user.name || "User #" + user.id,
+            password: hashSync(user.id.toString(), 10),
+            verified: new Date(),
+            provider: account?.provider,
+            providerId: account?.providerAccountId,
+          },
+        });
+
+        return true;
+      } catch (error) {
+        console.log("Error [SINGIN]", error);
+        return false;
+      }
+    },
     async jwt({ token }) {
       const findUser = await prisma.user.findFirst({
         where: {
