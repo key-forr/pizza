@@ -28,6 +28,7 @@ export { CheckoutSidebar } from "./checkout-sidebar";
 export { RequiredSymbol } from "./required-symbol";
 export { ClearButton } from "./clear-button";
 export { ErrorText } from "./error-text";
+export { ProfileButton } from "./profile-button";
 export * from "./form";
 export * from "./checkout";
 export * from "./modals";

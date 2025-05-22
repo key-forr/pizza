@@ -4,14 +4,13 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { Container } from "./container";
 import Image from "next/image";
-import { Button } from "../ui";
-import { User } from "lucide-react";
 import Link from "next/link";
 import { SearchInput } from "./search-input";
 import { CartButton } from "./cart-button";
 import { useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
-import { useSession, signIn } from "next-auth/react";
+import { ProfileButton } from "./profile-button";
+import { AuthModal } from "./modals";
 
 interface Props {
   hasSearch?: boolean;
@@ -24,10 +23,8 @@ export const Header: React.FC<Props> = ({
   hasSearch = true,
   className,
 }) => {
-  const { data: session } = useSession();
+  const [openAuthModal, setOpenAuthModal] = React.useState(false);
   const searchParams = useSearchParams();
-
-  console.log(session, 999);
 
   React.useEffect(() => {
     if (searchParams.has("paid")) {
@@ -63,20 +60,11 @@ export const Header: React.FC<Props> = ({
 
         {/* {Права частина} */}
         <div className="flex items-center gap-3">
-          <Button
-            onClick={() =>
-              signIn("github", {
-                callbackUrl: "/",
-                redirect: true,
-              })
-            }
-            variant={"outline"}
-            className="flex items-center gap-1"
-          >
-            <User size={16} />
-            Увійти
-          </Button>
-
+          <AuthModal
+            open={openAuthModal}
+            onClose={() => setOpenAuthModal(false)}
+          />
+          <ProfileButton onClickSignIn={() => setOpenAuthModal(true)} />
           {hasCart && <CartButton />}
         </div>
       </Container>
