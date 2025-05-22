@@ -11,6 +11,7 @@ import { SearchInput } from "./search-input";
 import { CartButton } from "./cart-button";
 import { useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
+import { useSession, signIn } from "next-auth/react";
 
 interface Props {
   hasSearch?: boolean;
@@ -23,7 +24,10 @@ export const Header: React.FC<Props> = ({
   hasSearch = true,
   className,
 }) => {
+  const { data: session } = useSession();
   const searchParams = useSearchParams();
+
+  console.log(session, 999);
 
   React.useEffect(() => {
     if (searchParams.has("paid")) {
@@ -59,7 +63,16 @@ export const Header: React.FC<Props> = ({
 
         {/* {Права частина} */}
         <div className="flex items-center gap-3">
-          <Button variant={"outline"} className="flex items-center gap-1">
+          <Button
+            onClick={() =>
+              signIn("github", {
+                callbackUrl: "/",
+                redirect: true,
+              })
+            }
+            variant={"outline"}
+            className="flex items-center gap-1"
+          >
             <User size={16} />
             Увійти
           </Button>
