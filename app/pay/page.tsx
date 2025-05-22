@@ -54,7 +54,7 @@ function CheckoutForm() {
         await stripe.confirmPayment({
           elements,
           confirmParams: {
-            return_url: `http://localhost:3000/payment-success?amount=${amount}&email=${email}`,
+            return_url: `${process.env.NEXT_PUBLIC_BASE_URL}/payment-success?amount=${amount}&email=${email}`,
           },
           redirect: "if_required",
         });
@@ -67,7 +67,7 @@ function CheckoutForm() {
       }
 
       if (paymentIntent && paymentIntent.status === "succeeded") {
-        window.location.href = `http://localhost:3000/payment-success?amount=${amount}&email=${email}&payment_intent=${paymentIntent.id}`;
+        window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/payment-success?amount=${amount}&email=${email}&payment_intent=${paymentIntent.id}`;
         return;
       }
 
@@ -77,7 +77,7 @@ function CheckoutForm() {
       if (retrievedIntent) {
         switch (retrievedIntent.status) {
           case "succeeded":
-            window.location.href = `http://localhost:3000/payment-success?amount=${amount}&email=${email}&payment_intent=${retrievedIntent.id}`;
+            window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/payment-success?amount=${amount}&email=${email}&payment_intent=${retrievedIntent.id}`;
             return;
           case "processing":
             setMessage(
@@ -118,7 +118,7 @@ function CheckoutForm() {
           await stripe.retrievePaymentIntent(clientSecret);
 
         if (paymentIntent && paymentIntent.status === "succeeded") {
-          window.location.href = `http://localhost:3000/payment-success?amount=${amount}&email=${email}&payment_intent=${paymentIntent.id}`;
+          window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/payment-success?amount=${amount}&email=${email}&payment_intent=${paymentIntent.id}`;
           return;
         } else if (
           paymentIntent &&

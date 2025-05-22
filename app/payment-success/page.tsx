@@ -49,7 +49,7 @@ export default function PaymentSuccessPage() {
 
         <div className="flex justify-center">
           <Link
-            href="/"
+            href="/?paid"
             className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-200 dark:focus:ring-gray-300"
             prefetch={false}
           >

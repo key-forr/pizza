@@ -10,7 +10,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2025-04-30.basil",
 });
 
-// Вимикаємо парсинг body для цього маршруту, щоб отримати raw body для верифікації
 export const config = {
   api: {
     bodyParser: false,
@@ -28,13 +27,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Отримуємо raw body для верифікації
     const rawBody = await req.text();
 
     let event: Stripe.Event;
 
     try {
-      // Верифікуємо підпис
       event = stripe.webhooks.constructEvent(
         rawBody,
         signature,
@@ -48,12 +45,10 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Обробляємо різні типи подій
     switch (event.type) {
       case "payment_intent.succeeded": {
         const paymentIntent = event.data.object as Stripe.PaymentIntent;
 
-        // Отримуємо ID замовлення з метаданих
         const orderId = paymentIntent.metadata.order_id;
 
         if (!orderId) {
@@ -64,7 +59,6 @@ export async function POST(req: NextRequest) {
           );
         }
 
-        // Знаходимо замовлення
         const order = await prisma.order.findFirst({
           where: {
             id: Number(orderId),
@@ -79,7 +73,6 @@ export async function POST(req: NextRequest) {
           );
         }
 
-        // Оновлюємо статус замовлення на SUCCESS
         await prisma.order.update({
           where: {
             id: order.id,
@@ -89,7 +82,6 @@ export async function POST(req: NextRequest) {
           },
         });
 
-        // Відправляємо email про успішне замовлення
         const items = JSON.parse(order.items);
 
         await sendEmail(
@@ -110,7 +102,6 @@ export async function POST(req: NextRequest) {
         const orderId = paymentIntent.metadata.order_id;
 
         if (orderId) {
-          // Оновлюємо статус замовлення на CANCELLED
           await prisma.order.update({
             where: {
               id: Number(orderId),
@@ -128,7 +119,6 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // Повертаємо 200 для підтвердження отримання
     return NextResponse.json({ received: true });
   } catch (error: any) {
     console.error(`[Stripe Webhook] Error: ${error.message}`);
