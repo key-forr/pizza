@@ -4,8 +4,10 @@ import { PayOrderTemplate } from "@/components/shared";
 import { CheckoutFormValues } from "@/constants/checkout-form-schema";
 import { sendEmail } from "@/lib";
 import { createStripePayment } from "@/lib/create-payment";
+import { getUserSession } from "@/lib/get-user-session";
 import { prisma } from "@/prisma/prisma-client";
-import { OrderStatus } from "@prisma/client";
+import { OrderStatus, Prisma } from "@prisma/client";
+import { hashSync } from "bcrypt";
 import { cookies } from "next/headers";
 
 export async function createOrder(data: CheckoutFormValues) {
@@ -58,7 +60,6 @@ export async function createOrder(data: CheckoutFormValues) {
       },
     });
 
-    // Очищаємо кошик після створення замовлення
     await prisma.cart.update({
       where: { id: userCart.id },
       data: { totalAmount: 0 },
@@ -68,7 +69,6 @@ export async function createOrder(data: CheckoutFormValues) {
       where: { cartId: userCart.id },
     });
 
-    // Створюємо платіж у Stripe
     const paymentIntent = await createStripePayment(
       order.id,
       order.totalAmount,
@@ -77,16 +77,13 @@ export async function createOrder(data: CheckoutFormValues) {
 
     const clientSecret = paymentIntent.client_secret;
 
-    // Формуємо URL для сторінки оплати
     const paymentUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/pay?client_secret=${clientSecret}&amount=${order.totalAmount}&email=${encodeURIComponent(order.email)}`;
 
-    // Зберігаємо ID платежу в замовленні
     await prisma.order.update({
       where: { id: order.id },
       data: { paymentId: paymentIntent.id },
     });
 
-    // Відправляємо email з посиланням на оплату
     await sendEmail(
       data.email,
       "DEPIZZA | Оплатіть замовлення",
@@ -100,6 +97,38 @@ export async function createOrder(data: CheckoutFormValues) {
     return paymentUrl;
   } catch (err) {
     console.error("[CreateOrder] Server error", err);
-    throw err; // Пробрасываем ошибку для обработки на клиенте
+    throw err;
+  }
+}
+
+export async function updateUserInfo(body: Prisma.UserUpdateInput) {
+  try {
+    const currentUser = await getUserSession();
+
+    if (!currentUser) {
+      throw new Error("Користувач не знайшовся");
+    }
+
+    const findUser = await prisma.user.findFirst({
+      where: {
+        id: Number(currentUser.id),
+      },
+    });
+
+    await prisma.user.update({
+      where: {
+        id: Number(currentUser.id),
+      },
+      data: {
+        fullName: body.fullName,
+        email: body.email,
+        password: body.password
+          ? hashSync(body.password as string, 10)
+          : findUser?.password,
+      },
+    });
+  } catch (err) {
+    console.log("Error [UPDATE_USER]", err);
+    throw err;
   }
 }
