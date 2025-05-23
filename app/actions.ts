@@ -166,7 +166,7 @@ export async function registerUser(body: Prisma.UserCreateInput) {
         userId: createdUser.id,
       },
     });
-
+    console.log("sending");
     await sendEmail(
       createdUser.email,
       "DEPIZZA / 📝 Підтвердження реєстрації",
