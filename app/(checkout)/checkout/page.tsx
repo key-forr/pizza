@@ -3,29 +3,28 @@
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import {
-  CheckoutSidebar,
-  Container,
-  Title,
-  CheckoutCart,
-  CheckoutPersonalForm,
-  CheckoutAddressForm,
-} from "@/components/shared";
 import { useCart } from "@/hooks";
-import {
-  CheckoutFormValues,
-  checkoutFormSchema,
-} from "@/constants/checkout-form-schema";
-import { cn } from "@/lib/utils";
 import { createOrder } from "@/app/actions";
 import toast from "react-hot-toast";
 import React from "react";
 import { useSession } from "next-auth/react";
-import { Api } from "@/services/api-client";
+import { Api } from "@//services/api-client";
+import {
+  checkoutFormSchema,
+  CheckoutFormValues,
+} from "@/constants/checkout-form-schema";
+import {
+  CheckoutAddressForm,
+  CheckoutCart,
+  CheckoutPersonalForm,
+  CheckoutSidebar,
+  Container,
+  Title,
+} from "@/components/shared";
 
 export default function CheckoutPage() {
   const [submitting, setSubmitting] = React.useState(false);
-  const { updateItemQuantity, totalAmount, items, removeCartItem, loading } =
+  const { totalAmount, updateItemQuantity, items, removeCartItem, loading } =
     useCart();
   const { data: session } = useSession();
 
@@ -61,7 +60,8 @@ export default function CheckoutPage() {
       setSubmitting(true);
 
       const url = await createOrder(data);
-      toast.error("Замовлення успішно оформлене. 🛒 Перехід до оплати...", {
+
+      toast.error("Замовлення успішно оформленно! 📝 Перехід на оплату... ", {
         icon: "✅",
       });
 
@@ -96,7 +96,7 @@ export default function CheckoutPage() {
       <FormProvider {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <div className="flex gap-10">
-            {/*Ліва частина*/}
+            {/* Ліва частина */}
             <div className="flex flex-col gap-10 flex-1 mb-20">
               <CheckoutCart
                 onClickCountButton={onClickCountButton}
@@ -106,15 +106,15 @@ export default function CheckoutPage() {
               />
 
               <CheckoutPersonalForm
-                className={cn({ "opacity-40 pointer-events-none": loading })}
+                className={loading ? "opacity-40 pointer-events-none" : ""}
               />
 
               <CheckoutAddressForm
-                className={cn({ "opacity-40 pointer-events-none": loading })}
+                className={loading ? "opacity-40 pointer-events-none" : ""}
               />
             </div>
 
-            {/*Права частина*/}
+            {/* Правая часть */}
             <div className="w-[450px]">
               <CheckoutSidebar
                 totalAmount={totalAmount}
