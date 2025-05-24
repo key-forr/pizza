@@ -156,6 +156,65 @@ async function up() {
       },
     },
   });
+
+  await prisma.story.createMany({
+    data: [
+      {
+        previewImageUrl:
+          "https://i.pinimg.com/736x/ae/c8/b7/aec8b709822023006be3516ea2ec1128.jpg",
+      },
+      {
+        previewImageUrl:
+          "https://i.pinimg.com/736x/92/0e/ea/920eeaef5663a64c84ee736e21ceb25b.jpg",
+      },
+      {
+        previewImageUrl:
+          "https://i.pinimg.com/736x/ab/65/0c/ab650ccf0ed3dad32ef72e6a161fba27.jpg",
+      },
+      {
+        previewImageUrl:
+          "https://i.pinimg.com/736x/86/ab/52/86ab52d61f94fcc4775424b416f8998d.jpg",
+      },
+      {
+        previewImageUrl:
+          "https://i.pinimg.com/736x/24/5d/64/245d64f22e712cdf0f4735c96390ac77.jpg",
+      },
+      {
+        previewImageUrl:
+          "https://i.pinimg.com/736x/b8/32/75/b83275893018f0e22059c760e33fb0ea.jpg",
+      },
+    ],
+  });
+
+  await prisma.storyItem.createMany({
+    data: [
+      {
+        storyId: 1,
+        sourceUrl:
+          "https://i.pinimg.com/736x/19/ba/8a/19ba8a5e300913a60d59dbf0e340dd29.jpg",
+      },
+      {
+        storyId: 1,
+        sourceUrl:
+          "https://i.pinimg.com/736x/ae/cd/e0/aecde057e0bae94f881ba4703fa3fe2f.jpg",
+      },
+      {
+        storyId: 1,
+        sourceUrl:
+          "https://i.pinimg.com/736x/c8/22/86/c82286e74ae1e424f452c13093431ef9.jpg",
+      },
+      {
+        storyId: 1,
+        sourceUrl:
+          "https://i.pinimg.com/736x/a2/e4/fb/a2e4fb0898d87fb1876f661ecdd52d20.jpg",
+      },
+      {
+        storyId: 1,
+        sourceUrl:
+          "https://i.pinimg.com/736x/b0/16/d1/b016d1017f8400ccf2d66b32f75b41da.jpg",
+      },
+    ],
+  });
 }
 
 async function down() {
@@ -166,6 +225,8 @@ async function down() {
   await prisma.$executeRaw`TRUNCATE TABLE "ProductItem" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "Cart" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "CartItem" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "Story" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "StoryItem" RESTART IDENTITY CASCADE`;
 }
 
 async function main() {
