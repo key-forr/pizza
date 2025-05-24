@@ -161,23 +161,23 @@ async function up() {
     data: [
       {
         previewImageUrl:
-          "https://i.pinimg.com/736x/ae/c8/b7/aec8b709822023006be3516ea2ec1128.jpg",
+          "https://i.pinimg.com/736x/1c/7a/8e/1c7a8e419757783396c3838adeac6178.jpg",
       },
       {
         previewImageUrl:
-          "https://i.pinimg.com/736x/92/0e/ea/920eeaef5663a64c84ee736e21ceb25b.jpg",
+          "https://i.pinimg.com/736x/55/ff/42/55ff422f81b89f5de8e1eba25c64ca09.jpg",
       },
       {
         previewImageUrl:
-          "https://i.pinimg.com/736x/ab/65/0c/ab650ccf0ed3dad32ef72e6a161fba27.jpg",
+          "https://i.pinimg.com/736x/7a/33/4a/7a334a35c33d8b4efa15e09d1c233e1a.jpg",
       },
       {
         previewImageUrl:
-          "https://i.pinimg.com/736x/86/ab/52/86ab52d61f94fcc4775424b416f8998d.jpg",
+          "https://i.pinimg.com/736x/ca/cc/b4/caccb49a3d31c46e9faafd18c0e6f5ee.jpg",
       },
       {
         previewImageUrl:
-          "https://i.pinimg.com/736x/24/5d/64/245d64f22e712cdf0f4735c96390ac77.jpg",
+          "https://i.pinimg.com/736x/2b/60/04/2b60046c98508560865b17f78ced0070.jpg",
       },
       {
         previewImageUrl:
@@ -206,12 +206,12 @@ async function up() {
       {
         storyId: 1,
         sourceUrl:
-          "https://i.pinimg.com/736x/a2/e4/fb/a2e4fb0898d87fb1876f661ecdd52d20.jpg",
+          "https://i.pinimg.com/736x/26/97/38/269738835cb0c273b2663c0c16f47820.jpg",
       },
       {
         storyId: 1,
         sourceUrl:
-          "https://i.pinimg.com/736x/b0/16/d1/b016d1017f8400ccf2d66b32f75b41da.jpg",
+          "https://i.pinimg.com/736x/7b/8a/09/7b8a09cae2ffe906019af16334cdffa9.jpg",
       },
     ],
   });
