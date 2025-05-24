@@ -1,4 +1,4 @@
-import { CartDTO } from "@/services/dto/cart-dto";
+import { CartDTO } from "../services/dto/cart-dto";
 import { calcCartItemTotalPrice } from "./calc-cart-item-total-price";
 
 export type CartStateItem = {
@@ -34,5 +34,8 @@ export const getCartDetails = (data: CartDTO): ReturnProps => {
     })),
   })) as CartStateItem[];
 
-  return { items, totalAmount: data.totalAmount };
+  return {
+    items,
+    totalAmount: data.totalAmount,
+  };
 };
